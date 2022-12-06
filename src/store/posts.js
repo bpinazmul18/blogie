@@ -1,6 +1,9 @@
 // ActionTypes
-
+const LOAD_POSTS = 'LOAD_POSTS'
 // Actions
+export const loadPosts = () => ({
+  type: LOAD_POSTS,
+})
 
 // Reducer
 
