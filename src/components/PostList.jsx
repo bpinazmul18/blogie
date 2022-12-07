@@ -15,7 +15,7 @@ const PostList = (props) => {
         <i className="large middle aligned icon user"></i>
         <div className="content">
           <div className="description">
-            <h2 className="header">{post.title}</h2>
+            <h2>{post.title}</h2>
             <p>{post.body}</p>
           </div>
           <UserHeader userId={post.userId} />

@@ -6,7 +6,15 @@ const UserHeader = (props) => {
   useEffect(() => {
     props.loadUser(props.userId)
   }, [])
-  return <div>User Header</div>
+
+  const user = props.users.find((user) => user.id === props.userId)
+  if (!user) return
+
+  return <div className="header">{user.name}</div>
 }
 
-export default connect(null, { loadUser })(UserHeader)
+const mapStateToProps = (state) => {
+  return { users: state.entities.users.list }
+}
+
+export default connect(mapStateToProps, { loadUser })(UserHeader)
