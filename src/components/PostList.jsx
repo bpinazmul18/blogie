@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { loadPosts } from '../store/posts'
+import UserHeader from './UserHeader'
 
 const PostList = (props) => {
   console.log(props)
@@ -17,6 +18,7 @@ const PostList = (props) => {
             <h2 className="header">{post.title}</h2>
             <p>{post.body}</p>
           </div>
+          <UserHeader userId={post.userId} />
         </div>
       </div>
     )

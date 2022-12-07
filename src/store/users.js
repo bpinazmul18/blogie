@@ -4,8 +4,8 @@ import { fetchUser } from '../services/users'
 const LOAD_USER = 'LOAD_USER'
 
 // Actions
-export const loadUser = () => async (dispatch) => {
-  const response = await fetchUser()
+export const loadUser = (userId) => async (dispatch) => {
+  const response = await fetchUser(userId)
   dispatch({
     type: LOAD_USER,
     payload: response.data,
@@ -24,7 +24,7 @@ const usersReducer = (users = initalState, action) => {
   if (action.type === LOAD_USER) {
     return {
       ...users,
-      list: action.payload,
+      user: action.payload,
       lastFetch: Date.now(),
       loading: false,
     }
