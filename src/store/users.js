@@ -14,7 +14,7 @@ export const loadUser = (userId) => async (dispatch) => {
 
 // Initial state
 const initalState = {
-  user: null,
+  list: [],
   lastFetch: null,
   loading: false,
 }
@@ -24,7 +24,7 @@ const usersReducer = (users = initalState, action) => {
   if (action.type === LOAD_USER) {
     return {
       ...users,
-      user: action.payload,
+      list: [...users.list, action.payload],
       lastFetch: Date.now(),
       loading: false,
     }
