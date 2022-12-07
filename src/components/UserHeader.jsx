@@ -7,14 +7,15 @@ const UserHeader = (props) => {
     props.loadUser(props.userId)
   }, [])
 
-  const user = props.users.find((user) => user.id === props.userId)
-  if (!user) return
+  if (!props.user) return
 
-  return <div className="header">{user.name}</div>
+  return <div className="header">{props.user.name}</div>
 }
 
-const mapStateToProps = (state) => {
-  return { users: state.entities.users.list }
+const mapStateToProps = (state, ownProps) => {
+  return {
+    user: state.entities.users.list.find((user) => user.id === ownProps.userId),
+  }
 }
 
 export default connect(mapStateToProps, { loadUser })(UserHeader)
